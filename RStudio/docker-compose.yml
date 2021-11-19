@@ -1,0 +1,14 @@
+version: '3'
+services:
+  rstudio:
+    container_name: rstudio
+    build: .
+    environment:
+      - PASSWORD=password
+      - ROOT=true
+      - USER=hendrik
+    volumes:
+      - ../DATA/rstudio:/home/hendrik/
+    ports:
+      - 8787:8787
+    restart: unless-stopped

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  code_server:
+    build: .
+    container_name: code-server
+    volumes:
+      - ../DATA/code-server:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - SUDO_PASSWORD=password
+      - PASSWORD=password
+    ports:
+      - 8443:8443
+    restart: unless-stopped

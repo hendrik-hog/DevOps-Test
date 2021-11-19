@@ -1,0 +1,36 @@
+########################################################
+# creates postgres sql database image and pgadmin4 image
+# login db: postgres:password hostname: postgres
+# login pgadmin: hendrik.hogertz@bayer.com:password port 8123
+########################################################
+
+version: '3'
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    # if you need to connect from outside, comment this in:
+    # ports:
+    #  - 5432:5432
+    restart: always
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    depends_on:
+      - postgres
+    volumes:
+      - ../DATA/postgres/pgadmin/server.json:/pgadmin4/servers.json
+      - pg_data:/var/lib/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=hendrik.hogertz@bayer.com
+      - PGADMIN_DEFAULT_PASSWORD=password
+    ports:
+      - 8123:80
+    restart: always
+volumes:
+  pg_data: null
+  postgres_data: null
