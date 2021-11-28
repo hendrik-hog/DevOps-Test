@@ -8,7 +8,9 @@ services:
       - ROOT=true
       - USER=hendrik
     volumes:
-      - ../DATA/rstudio:/home/hendrik/
+      - data:/home/hendrik/
     ports:
       - 8787:8787
     restart: unless-stopped
+volumes:
+  data:
