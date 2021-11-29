@@ -1,7 +1,7 @@
 ########################################################
 # creates postgres sql database image and pgadmin4 image
 # login db: postgres:password hostname: postgres
-# login pgadmin: hendrik.hogertz@bayer.com:password port 8123
+# login pgadmin: admin@example.com, password port 8123
 ########################################################
 
 version: '3'
@@ -26,7 +26,7 @@ services:
       - ../DATA/postgres/pgadmin/server.json:/pgadmin4/servers.json
       - pg_data:/var/lib/pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=hendrik.hogertz@bayer.com
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
       - PGADMIN_DEFAULT_PASSWORD=password
     ports:
       - 8123:80
