@@ -1,4 +1,4 @@
-streamlit==1.2.0
+streamlit==1.11.1
 spacy==3.2.0
 watchdog==2.1.6
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.2.0/en_core_web_sm-3.2.0.tar.gz
